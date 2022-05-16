@@ -1,0 +1,68 @@
+{
+    "unexpected_error": {
+        "code": "001",
+        "description": "Unexpected error",
+        "detail": "Unexpected error",
+        "status": 500
+    },
+    "internal_DB_Connection_Failed": {
+        "code": "002",
+        "description": "DB connection failed",
+        "detail": "Error to try connect to database",
+        "status": 500
+    },
+    "invalid_field_type": {
+        "code": "003",
+        "description": "Invalid field type",
+        "detail": "Invalid field type",
+        "status": 400
+    },
+    "empty_field": {
+        "code": "004",
+        "description": "The field cannot be empty",
+        "detail": "The field cannot be empty",
+        "status": 400
+    },
+    "invalid_field_format": {
+        "code": "005",
+        "description": "Invalid field format",
+        "detail": "Invalid field format",
+        "status": 400
+    },
+    "invalid_field_value": {
+        "code": "006",
+        "description": "Invalid field value",
+        "detail": "Invalid field value",
+        "status": 400
+    },
+    "required_field": {
+        "code": "007",
+        "description": "Required field",
+        "detail": "Required field",
+        "status": 400
+    },
+    "invalid_field_length": {
+        "code": "008",
+        "description": "Invalid field length",
+        "detail": "Invalid field length",
+        "status": 400
+    },
+    "unknown_field": {
+        "code": "009",
+        "description": "Field is not allowed, it is unknown",
+        "detail": "Field is not allowed, it is unknown",
+        "status": 400
+    },
+    "account_already_exist": {
+        "code": "010",
+        "description": "Account already exist",
+        "detail": "Account already exist",
+        "status": 409
+    },
+    "account_not_exist": {
+        "code": "0011",
+        "description": "Login failed",
+        "detail": "Login failed",
+        "status": 401
+    }
+}
