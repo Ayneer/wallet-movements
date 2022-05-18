@@ -1,12 +1,28 @@
 import Joi from 'joi';
-import { 
-    getSchemaErrorMessage, 
-    patternEmail 
+import {
+    getSchemaErrorMessage,
+    getSchemaErrorMessageAny,
+    patternEmail
 } from '../utils.validator';
 
 const MIN_LENGTH_PASSWORD = 6;
 
-export const signUpUserSchema = Joi.object({
+const addressSchema = Joi.object({
+    country: Joi
+        .string()
+        .required()
+        .messages(getSchemaErrorMessage('country')),
+    city: Joi
+        .string()
+        .required()
+        .messages(getSchemaErrorMessage('city')),
+    zipCode: Joi
+        .string()
+        .required()
+        .messages(getSchemaErrorMessage('zipCode')),
+});
+
+const personalDataSchema = Joi.object({
     firstName: Joi
         .string()
         .required()
@@ -15,6 +31,17 @@ export const signUpUserSchema = Joi.object({
         .string()
         .required()
         .messages(getSchemaErrorMessage('lastName')),
+    gender: Joi
+        .string()
+        .required()
+        .messages(getSchemaErrorMessage('gender')),
+    birthday: Joi
+        .string()
+        .required()
+        .messages(getSchemaErrorMessage('birthday'))
+});
+
+const sessionDataSchema = Joi.object({
     email: Joi
         .string()
         .regex(patternEmail)
@@ -26,6 +53,12 @@ export const signUpUserSchema = Joi.object({
         .required()
         .messages(getSchemaErrorMessage('password'))
 });
+
+export const signUpUserSchema = Joi.object({
+    personalData: personalDataSchema,
+    address: addressSchema,
+    sessionData: sessionDataSchema
+}).messages(getSchemaErrorMessageAny());
 
 export const signInUserSchema = Joi.object({
     email: Joi

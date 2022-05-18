@@ -7,6 +7,7 @@ import {
 export const signUpUserMiddleware: RequestHandler = (req, res, next) => {
     const { error } = signUpUserSchema.validate(req.body);
     if (error?.message) {
+        console.log(error)
         throw new Error(error?.message);
     }
     next();

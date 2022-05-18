@@ -1,3 +1,4 @@
+import { ERROR_WITH_DETAIL, SPLIT_OPERATOR_VALUE } from '../constants.common';
 import { getErrorWithDetail } from '../errors/index.error';
 
 export const getSchemaErrorMessage = (name: string) => ({
@@ -11,3 +12,6 @@ export const getSchemaErrorMessage = (name: string) => ({
     'object.unknown': getErrorWithDetail('unknown_field', name)
 });
 export const patternEmail = RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+export const getSchemaErrorMessageAny = () => ({
+    'object.unknown': `${ERROR_WITH_DETAIL}${SPLIT_OPERATOR_VALUE}unknown_field${SPLIT_OPERATOR_VALUE}{{#key}}`
+});

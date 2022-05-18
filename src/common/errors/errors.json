@@ -64,5 +64,11 @@
         "description": "Login failed",
         "detail": "Login failed",
         "status": 401
+    },
+    "category_already_exist": {
+        "code": "0012",
+        "description": "Category already exist",
+        "detail": "Category already exist",
+        "status": 400
     }
 }

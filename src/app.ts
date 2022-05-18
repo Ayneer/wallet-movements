@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import authRoutes from './routes/auth.routes';
+import categoryRoutes from './routes/category.routes';
 
 const app = express();
 
@@ -14,5 +15,6 @@ healthCheckRoute.get('/', (req, res) => res.json({ message: 'App health status i
 
 app.use('/api/v1/healthcheck', healthCheckRoute);
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/category', categoryRoutes);
 
 export default app;
