@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import {
+    getSchemaErrorAuthMessage,
     getSchemaErrorMessage,
     getSchemaErrorMessageAny,
     patternEmail
@@ -72,3 +73,10 @@ export const signInUserSchema = Joi.object({
         .required()
         .messages(getSchemaErrorMessage('password'))
 });
+
+export const tokenSchema = Joi.object({
+    authorization: Joi
+        .string()
+        .required()
+        .messages(getSchemaErrorAuthMessage())
+}).unknown(true);

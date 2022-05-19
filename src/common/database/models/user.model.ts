@@ -54,9 +54,7 @@ const userSchema = new Schema<IUser>({
             required: true
         }
     },
-    pockets: {
-        type: [pocketSchema],
-    }
+    pockets: [pocketSchema]
 });
 
 const User = model<IUser>('users', userSchema);

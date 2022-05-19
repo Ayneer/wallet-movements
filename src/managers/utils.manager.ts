@@ -1,4 +1,3 @@
-import { ICategory } from '../common/database/models/category.model';
 import { IUser } from '../common/database/models/user.model';
 import { IResponseModel } from '../common/models/response.model';
 

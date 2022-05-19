@@ -1,12 +1,11 @@
 import { Document, model, Schema } from 'mongoose';
-import { IMovement, movementSchema } from './movement.model';
 
 interface IPocket extends Document {
     name: string;
     description: string;
     totalAmount: number;
     canDelete: boolean;
-    movements: [IMovement]
+    code: string;
 }
 
 const pocketSchema = new Schema<IPocket>({
@@ -26,8 +25,9 @@ const pocketSchema = new Schema<IPocket>({
         type: Boolean,
         required: true
     },
-    movements: {
-        type: [movementSchema]
+    code: {
+        type: String,
+        required: true
     }
 });
 

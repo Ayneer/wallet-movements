@@ -1,6 +1,8 @@
 import { ERROR_WITH_DETAIL, SPLIT_OPERATOR_VALUE } from '../constants.common';
 import { getErrorWithDetail } from '../errors/index.error';
 
+const unauthorizedKey = 'unauthorized';
+
 export const getSchemaErrorMessage = (name: string) => ({
     'string.base': getErrorWithDetail('invalid_field_type', name),
     'string.empty': getErrorWithDetail('empty_field', name),
@@ -14,4 +16,14 @@ export const getSchemaErrorMessage = (name: string) => ({
 export const patternEmail = RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
 export const getSchemaErrorMessageAny = () => ({
     'object.unknown': `${ERROR_WITH_DETAIL}${SPLIT_OPERATOR_VALUE}unknown_field${SPLIT_OPERATOR_VALUE}{{#key}}`
+});
+export const getSchemaErrorAuthMessage = () => ({
+    'string.base': unauthorizedKey,
+    'string.empty': unauthorizedKey,
+    'string.alphanum': unauthorizedKey,
+    'any.only': unauthorizedKey,
+    'any.required': unauthorizedKey,
+    'string.pattern.base': unauthorizedKey,
+    'string.min': unauthorizedKey,
+    'object.unknown': unauthorizedKey
 });

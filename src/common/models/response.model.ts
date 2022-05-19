@@ -1,5 +1,6 @@
 import { IAddress } from '../database/models/address.model';
 import { ICategory } from '../database/models/category.model';
+import { IMovement } from '../database/models/movement.model';
 import { IPersonalData } from '../database/models/personalData.model';
 import { IPocket } from '../database/models/pocket.model';
 import { IPocketMovements } from './pocketMovements.model';
@@ -14,4 +15,6 @@ export interface IResponseModel {
     pockets?: [IPocket];
     pocketsMovements?: [IPocketMovements];
     category?: ICategory;
+    pocket?: IPocket;
+    movement?: IMovement;
 }
