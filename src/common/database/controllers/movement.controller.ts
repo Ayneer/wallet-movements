@@ -88,7 +88,6 @@ export const getUserMovementsByPocketId = async (
                             }
                         }
                     }
-
                 }
             },
             { $unwind: "$categories" },
@@ -102,6 +101,38 @@ export const getUserMovementsByPocketId = async (
                     _id: "$_id",
                     typeTotalAmount: { $first: '$typeTotalAmount' },
                     categories: { $push: '$categories' }
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    total: { $sum: "$typeTotalAmount" },
+                    incomes: {
+                        $push: {
+                            $cond: [
+                                { $eq: ["$_id", "I"] },
+                                {
+                                    id: "$_id",
+                                    typeTotalAmount: "$typeTotalAmount",
+                                    categories: "$categories"
+                                },
+                                "$$REMOVE"
+                            ]
+                        }
+                    },
+                    expenses: {
+                        $push: {
+                            $cond: [
+                                { $eq: ["$_id", "E"] },
+                                {
+                                    id: "$_id",
+                                    typeTotalAmount: "$typeTotalAmount",
+                                    categories: "$categories"
+                                },
+                                "$$REMOVE"
+                            ]
+                        }
+                    }
                 }
             }
         ]);

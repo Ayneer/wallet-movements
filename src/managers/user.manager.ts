@@ -22,7 +22,7 @@ export const addPocketToUserManager = async (name: string, description: string, 
             description,
             totalAmount: 0,
             canDelete: true,
-            code: `PK_${countDocs++}`
+            code: `PK_${countDocs+1}`
         }, userId);
         console.log(pocket)
         return {

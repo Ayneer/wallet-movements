@@ -8,8 +8,8 @@ export const createUser = async (user: Partial<IUser>) => {
     try {
         const newUser = new User(user);
         const pocket = new Pocket({
-            name: 'Pricipal Account',
-            description: 'Pricipal account',
+            name: 'My wallet',
+            description: 'My fisic wallet',
             totalAmount: 0,
             canDelete: false,
             code: 'PK_1'
